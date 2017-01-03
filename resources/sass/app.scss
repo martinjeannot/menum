@@ -1,0 +1,265 @@
+$base-color: #FF806C;
+$active-color: #E55943;
+$confirm-color: #32A956;
+//$page-bg-color: #ffcb96;
+
+// The following two lines import the default Sencha Touch theme. If you are building
+// a new theme, remove them and the add your own CSS on top of the base CSS (which
+// is already included in your app.json file).
+@import 'sencha-touch/default';
+@import 'sencha-touch/default/all';
+
+// Custom code goes here..
+
+// Examples of using the icon mixin:
+// @include icon('user');
+
+/*@mixin vertical-align {
+  position: relative;
+  top: 50%;
+  -webkit-transform: translateY(50%);
+  -ms-transform: translateY(50%);
+  transform: translateY(50%);
+}*/
+
+//~ COMMON =============================================================================================================
+
+@include icon('check', '3');
+
+$default-margin: 1rem;
+
+.default-container {
+  @extend .x-button-round;
+  @extend .x-form-fieldset;
+  border: 1px solid #000000;
+
+  >.x-inner {
+    margin: 0 $default-margin;
+  }
+
+  .last-element {
+    margin-bottom: $default-margin;
+  }
+}
+
+.background-base-color {
+  background-color: $active-color;
+}
+
+//~ VIEWS ==============================================================================================================
+
+//~ HOME VIEW
+
+.home {
+  @extend .x-html;
+  text-align: center;
+
+  .label {
+    font-weight: bold;
+    .x-inner {
+      top: 40%;
+    }
+  }
+}
+
+//~ RESTAURANT ============================================
+
+//~ RESTAURANT SEARCH VIEW
+
+.restaurant-search {
+  .submit-button {
+    @extend .x-form-fieldset;
+    height: 46px;
+  }
+}
+
+//~ RESTAURANT SEARCH RESULT VIEW
+
+.restaurant-search-result {
+  white-space: nowrap;
+
+  .left-element {
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 80%;
+    padding-right: 1%;
+  }
+
+  .name {
+    @extend .left-element;
+    font-weight: bold;
+  }
+
+  .cuisine {
+    @extend .left-element;
+  }
+
+  .distance {
+    text-align: right;
+    padding: 10px 0;
+  }
+}
+
+//~ RESTAURANT VIEW
+
+.restaurant {
+  @extend .x-html;
+  text-align: center;
+
+  .default-container {
+    .x-innerhtml {
+      padding-right: 2rem;
+    }
+  }
+
+  .name {
+    margin-top: $default-margin;
+    font-weight: bold;
+    font-size: large;
+  }
+
+  .image {
+    height: 170px;
+    margin: 1rem 2rem 1rem 0;
+  }
+
+  .opening-days-and-hours-table {
+    table, th, td {
+      border:1px solid black;
+    }
+
+    table {
+      margin-bottom: 0;
+    }
+
+    th, td {
+      text-align: center;
+      word-wrap:break-word;
+    }
+  }
+
+  .opening-days-and-hours-button {
+    margin-right: 2rem;
+  }
+
+  .open {
+    color: green;
+  }
+
+  .closed {
+    color: red;
+  }
+
+  .description {
+    margin: 2rem 0;
+  }
+
+  .menu-button {
+    height: 60px;
+    margin-right: 2rem;
+  }
+
+  .address {
+    margin: $default-margin 0;
+  }
+
+  .directions-button {
+    height: 60px;
+
+    -webkit-border-top-right-radius: 0;
+    -moz-border-top-right-radius: 0;
+    -ms-border-top-right-radius: 0;
+    -o-border-top-right-radius: 0;
+    border-top-right-radius: 0;
+
+    -webkit-border-bottom-right-radius: 0;
+    -moz-border-bottom-right-radius: 0;
+    -ms-border-bottom-right-radius: 0;
+    -o-border-bottom-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .travel-mode-select {
+    margin-right: 2rem;
+
+    -webkit-border-top-left-radius: 0;
+    -moz-border-top-left-radius: 0;
+    -ms-border-top-left-radius: 0;
+    -o-border-top-left-radius: 0;
+    border-top-left-radius: 0;
+
+    -webkit-border-bottom-left-radius: 0;
+    -moz-border-bottom-left-radius: 0;
+    -ms-border-bottom-left-radius: 0;
+    -o-border-bottom-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+}
+
+//~ MENU ==================================================
+
+//~ MENU VIEW
+
+.menu-nested-list-item {
+  white-space: nowrap;
+
+  .left-element {
+    float: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 70%;
+    padding-right: 1%;
+  }
+
+  .name {
+    @extend .left-element;
+    font-weight: bold;
+  }
+
+  .price {
+    float: right;
+  }
+}
+
+.menu-item {
+  @extend .x-html;
+  text-align: center;
+
+  .default-container {
+    .x-innerhtml {
+      padding-right: 2rem;
+    }
+  }
+
+  .name {
+    margin-top: $default-margin;
+    font-weight: bold;
+    font-size: large;
+  }
+
+  .image {
+    height: 170px;
+    margin: 1rem 2rem 0 0;
+  }
+
+  .description {
+    margin: 2rem 0;
+  }
+
+  .price {
+    font-style: italic;
+  }
+}
+
+//~ UTIL ===============================================================================================================
+
+// Travel Mode Select field
+.travel-mode-select {
+  @extend .x-button;
+  @extend .x-button-action-round;
+}
+
+img.travel-mode-icon {
+  margin-left: 40%;
+}
